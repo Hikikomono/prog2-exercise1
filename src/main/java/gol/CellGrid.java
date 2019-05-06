@@ -22,6 +22,16 @@ public class CellGrid {
 
 	/** The generation history. */
 	//TODO save history
+	private Originator originator = new Originator();
+	private CareTaker careTaker = new CareTaker();
+
+	//method to call that adds a grid as a String .. blablabla müde
+	public void saveHistory(){
+		String gridString = Arrays.deepToString(grid); //TODO .deepTostring müsste getestet werden ob es gewollte funktion durchführt
+		originator.setState(gridString);
+		careTaker.add(originator.saveStateToMemento(originator.getState()));
+	}
+
 	
 	/**
 	 * Instantiates a new cell grid.
@@ -382,6 +392,11 @@ public class CellGrid {
 	 *
 	 * @param file the file
 	 */
+	/*TODO
+	Die Methode loadGrid der Klasse CellGrid ist nicht optimal nach den Prinzipen von
+	TTD umgesetzt.
+	Versuchen sie die Methoden aufzuteilen und beim Testen mit dem Mockito Framework zu testen
+	 */
 	public void loadGrid(File file) {
 		String line;
 		Vector<String> fileGrid = new Vector<String>();
@@ -393,8 +408,9 @@ public class CellGrid {
 		} catch (Exception e) {
 
 		}
-
+		//anzahl der cols wird anhand länge der strings gesetzt
 		this.setCols(fileGrid.get(0).length());
+		//länge der rows wird anhand der anzahl an strings von fileGrid gesetzt
 		this.setRows(fileGrid.size());
 		this.setGeneration(0);
 

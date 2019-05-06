@@ -5,7 +5,6 @@ package gol;
  */
 
 
-//TODO add observer pattern
 
 
 public class Cell extends Subject{
