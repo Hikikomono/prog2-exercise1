@@ -267,9 +267,14 @@ public class CellGrid {
 			if(getCell(row-1,col).getState()){
 				aliveNeighboursCount++;
 			}
-			if(getCell(row-1,col).getState()){
+			//DONE (row-1,col) auf (row-1,col+1) geändert
+			/*if(getCell(row-1,col).getState()){ //DONE duplicate code
+				aliveNeighboursCount++;
+			}*///DONE (row-1,col) auf (row-1,col+1) geändert
+			if(getCell(row-1,col+1).getState()){ //DONE duplicate code
 				aliveNeighboursCount++;
 			}
+
 			if(getCell(row,col-1).getState()){
 				aliveNeighboursCount++;
 			}
